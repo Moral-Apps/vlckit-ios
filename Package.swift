@@ -1,26 +1,29 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
+let vlcFramework = Target.binaryTarget(name: "VLCKitFramework", url: "https://gofile.me/4pLU9/BF6kSRqoz", checksum: "0e758e6418cb68ab1cb85417fc72ee6cddfb7a7caa0ccd18ed5d8d0c53f5194a")
+
 let package = Package(
-    name: "VLCKitWrapper",
+    name: "vlckit-ios",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v13),
+        .tvOS(.v13),
+        .macOS(.v11)
     ],
     products: [
-        // Expose the binary as a library
-        .library(name: "VLCKitWrapper", targets: ["MobileVLCKit"])
+        .library(
+            name: "VLCKit",
+            targets: ["VLCKit"]),
     ],
+    dependencies: [],
     targets: [
-        // Use a local binary target inside the same repo
-        .binaryTarget(
-            name: "MobileVLCKit",
-            path: "Frameworks/MobileVLCKit.xcframework" // <--- committed folder
-        ),
-        // Dummy target to keep SPM happy if needed (optional)
+        vlcFramework,
         .target(
-            name: "VLCKitShim",
-            dependencies: ["MobileVLCKit"],
-            path: "Sources/VLCKitShim"
-        )
+            name: "VLCKit",
+            dependencies: [
+                .target(name: "VLCKitFramework")
+            ], linkerSettings: [
+                .unsafeFlags(["-ObjC"])
+            ]),
     ]
 )
