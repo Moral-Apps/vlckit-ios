@@ -22,8 +22,6 @@ let package = Package(
             name: "VLCKit",
             dependencies: [
                 .target(name: "VLCKitFramework")
-            ], linkerSettings: [
-                .unsafeFlags(["-ObjC"])
             ]),
     ]
 )
