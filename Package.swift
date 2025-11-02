@@ -1,7 +1,7 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let vlcFramework = Target.binaryTarget(name: "VLCKitFramework", url: "https://github.com/Moral-Apps/vlckit-ios/releases/download/v0.0.3/VLCKit.xcframework.zip", checksum: "0e758e6418cb68ab1cb85417fc72ee6cddfb7a7caa0ccd18ed5d8d0c53f5194a")
+let vlcFramework = Target.binaryTarget(name: "VLCKitFramework", url: "https://github.com/Moral-Apps/vlckit-ios/releases/download/0.0.4/VLCKit.xcframework.zip", checksum: "0e758e6418cb68ab1cb85417fc72ee6cddfb7a7caa0ccd18ed5d8d0c53f5194a")
 
 let package = Package(
     name: "vlckit-ios",
