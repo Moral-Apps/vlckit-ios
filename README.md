@@ -19,8 +19,6 @@ To use this package in your iOS project, add it through **Swift Package Manager*
    ```
 3. Choose the latest release and add it to your target.
 
-Xcode will automatically download the precompiled `.xcframework` from the release assets and link it to your project.
-
 ---
 
 ## ⚙️ How It Works
@@ -33,6 +31,35 @@ import VLCKit
 ```
 
 ---
+
+## 🔄 Updating the VLCKit Framework
+
+If a new version of **VLCKit** is released, you can update this repository to include it by following these steps:
+
+1. Open a terminal and navigate to the `Scripts` folder within this repository.
+2. Run the script:
+   ```bash
+   ./generate-vlc-kit.sh
+   ```
+3. The script will:
+   - Download the latest **VLCKit** frameworks for iOS, macOS, and tvOS.
+   - Merge them into a single `.xcframework`.
+   - Create a zipped file and display its SHA256 checksum in the terminal.
+   - Generate a temporary folder `tmp` inside the `Scripts` directory containing the generated files.
+
+4. Open `Package.swift` and update:
+   - The **URL** to point to the new release (only update the version number in the URL).
+   - The **checksum** value with the new hash printed by the script.
+
+5. Commit and push your changes.
+
+6. Create a new **tag** matching the version of the updated VLCKit.
+
+7. Go to GitHub → this repository → **Releases** → create a new release using the new tag, and upload the generated `.zip` file.
+
+8. Once uploaded, you can now use the new version in your main project.
+
+9. Finally, delete the temporary `tmp` folder inside the `Scripts` directory to clean up.
 
 ## 🧩 Notes
 
