@@ -3,7 +3,6 @@
 TMP_DIR="tmp"
 rm -rf "$TMP_DIR/" || true
 
-TAG_VERSION="3.6.0"
 IOS_URL="https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
 MACOS_URL="https://download.videolan.org/pub/cocoapods/prod/VLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
 TVOS_URL="https://download.videolan.org/cocoapods/prod/TVVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
@@ -39,6 +38,4 @@ xcodebuild -create-xcframework \
 ditto -c -k --sequesterRsrc --keepParent "$TMP_DIR/VLCKit.xcframework" "$TMP_DIR/VLCKit.xcframework.zip"
 
 PACKAGE_HASH=$(sha256sum "$TMP_DIR/VLCKit.xcframework.zip" | awk '{ print $1 }')
-#PACKAGE_STRING="Target.binaryTarget(name: \"VLCKit\", url: \"https:\/\/github.com\/moralapps\/vlckit-ios\/releases\/download\/$TAG_VERSION\/VLCKit.xcframework.zip\", checksum: \"$PACKAGE_HASH\")"
 echo "Binary hash: $PACKAGE_HASH"
-#sed -i '' -e "s/let vlcBinary.*/let vlcBinary = $PACKAGE_STRING/" Package.swift
