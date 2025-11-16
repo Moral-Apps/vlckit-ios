@@ -75,5 +75,11 @@ import VLCKit
 
 ## 🪪 License
 
-VLCKit is licensed under the **LGPLv2.1**.  
-See the [VideoLAN legal page](https://www.videolan.org/legal.html) for more details.
+This repository does not contain or modify the source code of VLCKit.  
+It only redistributes the official unmodified `VLCKit.xcframework` for Swift Package Manager integration.
+
+VLCKit is licensed under the **LGPLv2.1** by VideoLAN.
+
+- VLCKit source code: https://github.com/videolan/vlckit  
+- License text (LGPL 2.1): https://opensource.org/license/LGPL-2.1/  
+- VideoLAN legal page: https://www.videolan.org/legal.html
